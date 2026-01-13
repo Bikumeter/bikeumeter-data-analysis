@@ -3,8 +3,10 @@
     -- what type of join? => CROSS JOIN => tables don't have columns in common, 
     -- so I need all the info from one table, and just one col from the second.
 -- 3) get the total which is the amount spent on the bike
--- 4) do a running total = cumulative sum
--- 5) check to see when it crosses 0 using running total against total spent on bike
+    -- a) strip the public_transport_fare of the euro symbol
+    -- b) convert it to a numeric value
+    -- c) do the cumulative sum
+-- 4) check to see when it crosses 0 using running total against total spent on bike
 
 WITH bikeumeter_activities AS (
     SELECT * FROM read_csv_auto('data/bikeumeter_activities.csv') AS activities
@@ -12,6 +14,6 @@ WITH bikeumeter_activities AS (
 )
 
 SELECT date, ride_duration_minutes, 
-        public_transport_fare, (total * -1) AS bike_cost 
+        public_transport_fare, (total * -1) AS bike_cost
 FROM bikeumeter_activities
 LIMIT 10;
