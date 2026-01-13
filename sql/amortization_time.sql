@@ -33,7 +33,7 @@ amortization AS (
 )
     -- c) convert total to negative value
     -- d) do the cumulative sum
-SELECT date, public_transport_fare, 
+SELECT id, date, public_transport_fare, 
         cumulative_sum, amortization    
 FROM amortization
 WHERE amortization >= 0
