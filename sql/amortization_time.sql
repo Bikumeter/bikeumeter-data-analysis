@@ -33,11 +33,10 @@ amortization AS (
             (bike_cost * -1) + cumulative_sum AS amortization
     FROM numeric_fare
 )
-
+-- 4) check to see when it crosses 0 using running total against total spent on bike
 SELECT id, date, public_transport_fare, 
         cumulative_sum, amortization
 FROM amortization
 WHERE amortization >= 0
 LIMIT 1;
--- 4) check to see when it crosses 0 using running total against total spent on bike
 
