@@ -38,6 +38,6 @@ SELECT id, date, public_transport_fare,
         cumulative_sum, amortization
 FROM amortization
 WHERE amortization >= 0
-ORDER BY date
+ORDER BY date asc
 LIMIT 1;
 
