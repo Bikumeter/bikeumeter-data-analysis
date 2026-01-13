@@ -46,11 +46,10 @@ break_amortization_threshold AS (
     ORDER BY date
     LIMIT 1
 )
-
+-- 4) get the amount of time it took to amortize it
 SELECT 
     initial_date.date AS start_date,
     break_amortization_threshold.date AS amortized_date,
     break_amortization_threshold.date - initial_date.date AS took_to_amortize
 FROM initial_date, break_amortization_threshold;
--- 4) check to see when it crosses 0 using running total against total spent on bike
 
