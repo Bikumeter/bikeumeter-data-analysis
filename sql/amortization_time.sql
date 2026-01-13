@@ -23,14 +23,20 @@ numeric_fare AS (
     SELECT *,
             CAST(cleaned_fare AS DECIMAL(10, 2)) AS numeric_fare
     FROM cleaned_fare
+),
+
+amortization AS (
+    SELECT *,
+            SUM(numeric_fare) OVER( ORDER BY date) AS cumulative_sum,
+            (bike_cost * -1) + cumulative_sum AS amortization
+    FROM numeric_fare
 )
     -- c) convert total to negative value
     -- d) do the cumulative sum
-SELECT date, ride_duration_minutes, 
-        public_transport_fare, bike_cost, (bike_cost * -1) AS bike_cost,
-        numeric_fare,
-        SUM(numeric_fare) OVER( ORDER BY date)
-FROM numeric_fare
-LIMIT 10;
+SELECT date, public_transport_fare, 
+        cumulative_sum, amortization    
+FROM amortization
+WHERE amortization >= 0
+LIMIT 1;
 -- 4) check to see when it crosses 0 using running total against total spent on bike
 
