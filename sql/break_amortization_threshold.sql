@@ -30,7 +30,7 @@ numeric_fare AS (
 amortization AS (
     SELECT *,
             SUM(numeric_fare) OVER( ORDER BY date) AS cumulative_sum,
-            (bike_cost * -1) + cumulative_sum AS amortization
+            CAST((bike_cost * -1) + cumulative_sum AS DECIMAL(10,2)) AS amortization
     FROM numeric_fare
 )
 -- 4) check to see when it crosses 0 using running total against total spent on bike
