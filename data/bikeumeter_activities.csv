@@ -199,53 +199,18 @@ id ,name,start_location,end_location,distance_mt,date,public_transport_fare,ride
 16845657129,swapfiets commute - naar thuis,"Linnaeusstraat 2B, 1092 CK Amsterdam, Netherlands","Emmeline Pankhurststraat 20, 1103 MN Amsterdam, Netherlands",6305.2,2025-12-26T14:41:52Z,€2.70,1227,20.45
 16873815953,swapfiets commute - naar Oost,"Emmeline Pankhurststraat 20, 1103 MN Amsterdam, Netherlands","Linnaeusstraat 2C, 1092 CK Amsterdam, Netherlands",6467.8,2025-12-29T13:10:08Z,€2.70,1374,22.90
 16888666269,swapfiets commute - wel thuis,"Linnaeusstraat 2B, 1092 CK Amsterdam, Netherlands","Emmeline Pankhurststraat 16, 1103 MN Amsterdam, Netherlands",6316.3,2025-12-30T22:42:47Z,€3.14,1212,20.20
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-,,,,,,,,00.00
-16912317076,swapfiets commute - naar Oosterpark,"Emmeline Pankhurststraat 20, 1103 MN Amsterdam, Netherlands","Impact, Linnaeusstraat 2C, 1092 CK Amsterdam, Netherlands",6393.2,2026-01-02T13:02:36Z,€2.82,1377,
+16912317076,swapfiets commute - naar Oosterpark,"Emmeline Pankhurststraat 20, 1103 MN Amsterdam, Netherlands","Impact, Linnaeusstraat 2C, 1092 CK Amsterdam, Netherlands",6393.2,2026-01-02T13:02:36Z,€2.82,1377,22.95
+16917383347,swapfiets commute - naar thuis,"Impact, Linnaeusstraat 2C, 1092 CK Amsterdam, Netherlands","Emmeline Pankhurststraat 25, 1103 MN Amsterdam, Netherlands",6273.4,2026-01-02T22:13:27Z,€2.82,1265,21.08
+16923387983,swapfiets commute - naar Oost,"Emmeline Pankhurststraat 13, 1103 MN Amsterdam, Netherlands","Linnaeusstraat 2B, 1092 CK Amsterdam, Netherlands",6420.5,2026-01-03T13:08:41Z,€2.82,1381,23.02
+16928425286,swapfiets commute - naar thuis,"Linnaeusstraat 2B, 1092 CK Amsterdam, Netherlands","Emmeline Pankhurststraat 14, 1103 MN Amsterdam, Netherlands",6316.4,2026-01-03T22:13:07Z,€2.82,1507,25.12
+16934644788,swapfiets commute - naar Oost,"Emmeline Pankhurststraat 20, 1103 MN Amsterdam, Netherlands","Impact, Linnaeusstraat 2C, 1092 CK Amsterdam, Netherlands",6375,2026-01-04T13:03:27Z,€2.82,1411,23.52
+16940551524,swapfiets commut - thuis,"Linnaeusstraat 2 C, 1092 CK Amsterdam, Netherlands","Emmeline Pankhurststraat 15, 1103 MN Amsterdam, Netherlands",6351.6,2026-01-05T00:04:21Z,€17.07,1612,26.87
+16956573858,swapfiets commute - naar Oost,"Emmeline Pankhurststraat 20, 1103 MN Amsterdam, Netherlands","Impact, Linnaeusstraat 2C, 1092 CK Amsterdam, Netherlands",6496.5,2026-01-06T13:10:03Z,€2.82,1835,30.58
+16961935802,swapfiets commute - thuis,"Linnaeusstraat 2B, 1092 CK Amsterdam, Netherlands","Emmeline Pankhurststraat 20, 1103 MN Amsterdam, Netherlands",6311.5,2026-01-06T22:13:24Z,€2.82,1758,29.30
+16967853974,swapfiets commute - naar Oost,"Emmeline Pankhurststraat 9, 1103 MN Amsterdam, Netherlands","Linnaeusstraat 2C, 1092 CK Amsterdam, Netherlands",6405.2,2026-01-07T12:59:37Z,2.82,2156,35.93
+16973368349,swapfiets commute - thuis,"Impact, Linnaeusstraat 2C, 1092 CK Amsterdam, Netherlands","Emmeline Pankhurststraat 20, 1103 MN Amsterdam, Netherlands",5799.3,2026-01-07T22:05:56Z,2.82,2165,36.08
+16979512311,swapfiets commute - naar Oosterpark,"Emmeline Pankhurststraat 13, 1103 MN Amsterdam, Netherlands","Linnaeusstraat 2B, 1092 CK Amsterdam, Netherlands",6415.6,2026-01-08T13:18:13Z,2.82,1619,26.98
+16984185642,swapfiets commute - thuis,"Linnaeusstraat 2B, 1092 CK Amsterdam, Netherlands","Emmeline Pankhurststraat 18, 1103 MN Amsterdam, Netherlands",6669,2026-01-08T22:07:47Z,€2.82,1744,29.07
+16989613566,swapfiets commute - naar Oost,"Emmeline Pankhurststraat 28, 1103 MT Amsterdam, Netherlands","Impact, Linnaeusstraat 2C, 1092 CK Amsterdam, Netherlands",6512.4,2026-01-09T12:55:13Z,€2.98,1557,
+16994293339,swapfiets commute - thuis,"Linnaeusstraat 2B, 1092 CK Amsterdam, Netherlands","Emmeline Pankhurststraat 18, 1103 MN Amsterdam, Netherlands",6414.2,2026-01-09T22:13:45Z,€2.92,2018,
+17022780576,swapfiets commute - naar Oost,"Isabella Richaardsstraat 92, 1103 MH Amsterdam, Netherlands","Linnaeusstraat 2B, 1092 CK Amsterdam, Netherlands",6398.4,2026-01-12T13:22:57Z,€2.98,1322,
