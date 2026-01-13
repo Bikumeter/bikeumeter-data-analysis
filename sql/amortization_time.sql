@@ -12,6 +12,6 @@ WITH bikeumeter_activities AS (
 )
 
 SELECT date, ride_duration_minutes, 
-        public_transport_fare, total 
+        public_transport_fare, (total * -1) AS bike_cost 
 FROM bikeumeter_activities
 LIMIT 10;
