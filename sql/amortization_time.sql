@@ -32,11 +32,25 @@ amortization AS (
             SUM(numeric_fare) OVER( ORDER BY date) AS cumulative_sum,
             (bike_cost * -1) + cumulative_sum AS amortization
     FROM numeric_fare
+),
+
+initial_date AS (
+    SELECT date FROM amortization
+    ORDER BY date 
+    LIMIT 1
+),
+
+break_amortization_threshold AS (
+    SELECT date FROM amortization
+    WHERE amortization >= 0
+    ORDER BY date
+    LIMIT 1
 )
+
+SELECT 
+    initial_date.date AS start_date,
+    break_amortization_threshold.date AS amortized_date,
+    break_amortization_threshold.date - initial_date.date AS took_to_amortize
+FROM initial_date, break_amortization_threshold;
 -- 4) check to see when it crosses 0 using running total against total spent on bike
-SELECT id, date, public_transport_fare, 
-        cumulative_sum, amortization
-FROM amortization
-WHERE amortization >= 0
-LIMIT 1;
 
