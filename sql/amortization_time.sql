@@ -11,6 +11,7 @@ WITH bikeumeter_activities AS (
         )  AS bike_cost
     FROM read_csv_auto('data/bikeumeter_activities.csv') AS activities
 ),
+
 -- 3) get the total which is the amount spent on the bike
     -- a) strip the public_transport_fare of the euro symbol
 cleaned_fare AS (
@@ -24,17 +25,17 @@ numeric_fare AS (
             CAST(cleaned_fare AS DECIMAL(10, 2)) AS numeric_fare
     FROM cleaned_fare
 ),
-
+    -- c) convert total to negative value
+    -- d) do the cumulative sum
 amortization AS (
     SELECT *,
             SUM(numeric_fare) OVER( ORDER BY date) AS cumulative_sum,
             (bike_cost * -1) + cumulative_sum AS amortization
     FROM numeric_fare
 )
-    -- c) convert total to negative value
-    -- d) do the cumulative sum
+
 SELECT id, date, public_transport_fare, 
-        cumulative_sum, amortization    
+        cumulative_sum, amortization
 FROM amortization
 WHERE amortization >= 0
 LIMIT 1;
