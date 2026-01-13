@@ -50,6 +50,7 @@ break_amortization_threshold AS (
 SELECT 
     initial_date.date AS start_date,
     break_amortization_threshold.date AS amortized_date,
-    break_amortization_threshold.date - initial_date.date AS took_to_amortize
+    EXTRACT(DAY FROM (break_amortization_threshold.date - initial_date.date)) AS days_to_amortize,
+    days_to_amortize / 30 AS months_to_amortize
 FROM initial_date, break_amortization_threshold;
 
