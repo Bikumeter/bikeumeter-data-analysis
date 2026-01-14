@@ -4,5 +4,4 @@
 <ol>
 <li>SQL</li>
 <li>DuckDB</li>
-<li></li>
 </ol>
