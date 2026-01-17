@@ -9,7 +9,7 @@ WITH bikeumeter_activities AS (
             FROM read_csv_auto('data/bikeumeter_bike_costs.csv')
             LIMIT 1
         )  AS bike_cost
-    FROM read_csv_auto('data/bikeumeter_activities.csv') AS activities
+    FROM read_csv_auto('data/bikeumeter_commute_activities') AS activities
 ),
 
 -- 3) get the total which is the amount spent on the bike
