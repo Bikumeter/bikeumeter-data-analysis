@@ -14,7 +14,14 @@
 
 
 <h2>Amortization</h2>
-<img width="973" height="117" alt="image" src="https://github.com/user-attachments/assets/65804ff9-6c01-486c-a929-7686b1cc7194" />
+<img width="873" height="136" alt="image" src="https://github.com/user-attachments/assets/8e86b0ed-5c40-47f8-ab8f-9fbd6a57dcd4" />
+
+<h2>Amortization threshold</h2>
+<img width="1042" height="135" alt="image" src="https://github.com/user-attachments/assets/b7ea8169-035a-4ad7-86a1-0772b289fc30" />
+
+
+<h2>Amortization</h2>
+<img width="873" height="136" alt="image" src="https://github.com/user-attachments/assets/8e86b0ed-5c40-47f8-ab8f-9fbd6a57dcd4" />
 
 <h2>Amortization threshold</h2>
 <img width="977" height="140" alt="image" src="https://github.com/user-attachments/assets/77855645-40f8-49cd-ae40-911bbf85ed20" />
