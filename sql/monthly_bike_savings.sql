@@ -13,16 +13,19 @@ clean_date AS (
 
 -- b) Turn date into month -- monthname(date) function
 -- c) Group activities by date
--- d) Get the last 6 months
 monthly_activities AS (
-    SELECT start_city, end_city, public_transport_fare, ride_duration_minutes,
-            MONTHNAME(date_only) AS month
+    SELECT MONTHNAME(date_only) AS month, public_transport_fare, ride_duration_minutes,
     FROM clean_date
     ORDER BY date_only -- always order by date not by month name
+),
+
+cleaned_fare_euros AS (
+    SELECT month, ride_duration_minutes, 
+            REPLACE(public_transport_fare, '€', '') AS cleaned_fare_euros
+    FROM monthly_activities
 )
 
-
-SELECT * FROM monthly_activities;
+SELECT * FROM cleaned_fare_euros;
 -- 2) Public transport fare sum
     -- a) Cummulative sum of fare per month
     -- b) Get average from this
