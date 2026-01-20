@@ -29,17 +29,17 @@ COPY (
         -- d) do the cumulative sum
     amortization AS (
         SELECT *,
-                SUM(numeric_fare) OVER( ORDER BY date) AS cumulative_sum,
-                CAST((bike_cost * -1) + cumulative_sum AS DECIMAL(10,2)) AS amortization
+                SUM(numeric_fare) OVER( ORDER BY date) AS cumulative_saved_fares,
+                CAST((bike_cost * -1) + cumulative_saved_fares AS DECIMAL(10,2)) AS amortization
         FROM numeric_fare
     )
     -- 4) check to see when it crosses 0 using running total against total spent on bike
     SELECT id, date, public_transport_fare, 
-            cumulative_sum, amortization
+            cumulative_saved_fares, amortization
     FROM amortization
     WHERE amortization >= 0
     ORDER BY date asc
-    LIMIT 1
+    LIMIT 1;
 )
 TO 'results/bike_amortization_threshold.csv'
 WITH (HEADER, DELIMETER ',');
