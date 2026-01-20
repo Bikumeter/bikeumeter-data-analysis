@@ -23,9 +23,18 @@ cleaned_fare_euros AS (
     SELECT month, ride_duration_minutes, 
             REPLACE(public_transport_fare, '€', '') AS cleaned_fare_euros
     FROM monthly_activities
+),
+
+monthly_rides AS (
+    SELECT month,
+            SUM(ride_duration_minutes) AS time_ridden,
+            SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money
+    FROM cleaned_fare_euros
+    GROUP BY month
+    ORDER BY month
 )
 
-SELECT * FROM cleaned_fare_euros;
+SELECT * FROM monthly_rides;
 -- 2) Public transport fare sum
     -- a) Cummulative sum of fare per month
     -- b) Get average from this
