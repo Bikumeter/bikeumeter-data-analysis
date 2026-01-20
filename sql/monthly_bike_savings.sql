@@ -27,6 +27,7 @@ cleaned_fare_euros AS (
 
 monthly_rides AS (
     SELECT month,
+            COUNT(*) AS rides_per_month,
             SUM(ride_duration_minutes) AS time_ridden,
             SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money
     FROM cleaned_fare_euros
