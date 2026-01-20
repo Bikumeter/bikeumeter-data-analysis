@@ -39,7 +39,7 @@ COPY (
     FROM amortization
     WHERE amortization >= 0
     ORDER BY date asc
-    LIMIT 1;
+    LIMIT 1
 )
 TO 'results/bike_amortization_threshold.csv'
 WITH (HEADER, DELIMETER ',');
