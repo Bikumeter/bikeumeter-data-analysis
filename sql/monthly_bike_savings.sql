@@ -16,7 +16,7 @@ clean_date AS (
 monthly_activities AS (
     SELECT date_part('month', date_only) AS month_number, MONTHNAME(date_only) AS month, public_transport_fare, ride_duration_minutes,
     FROM clean_date
-    WHERE date_part('year', date_only) < 2026
+    WHERE date_part('year', date_only) = 2025
     ORDER BY date_only -- always order by date not by month name
 ),
 
