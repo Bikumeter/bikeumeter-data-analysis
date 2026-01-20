@@ -14,25 +14,25 @@ clean_date AS (
 -- b) Turn date into month -- monthname(date) function
 -- c) Group activities by date
 monthly_activities AS (
-    SELECT MONTHNAME(date_only) AS month, public_transport_fare, ride_duration_minutes,
+    SELECT date_part('month', date_only) AS month_number, MONTHNAME(date_only) AS month, public_transport_fare, ride_duration_minutes,
     FROM clean_date
     ORDER BY date_only -- always order by date not by month name
 ),
 
 cleaned_fare_euros AS (
-    SELECT month, ride_duration_minutes, 
+    SELECT month_number, month, ride_duration_minutes, 
             REPLACE(public_transport_fare, '€', '') AS cleaned_fare_euros
     FROM monthly_activities
 ),
 
 monthly_rides AS (
-    SELECT month,
+    SELECT month_number, month,
             COUNT(*) AS rides_per_month,
             SUM(ride_duration_minutes) AS time_ridden,
             SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money
     FROM cleaned_fare_euros
-    GROUP BY month
-    ORDER BY month
+    GROUP BY month_number, month
+    ORDER BY month_number ASC
 )
 
 SELECT * FROM monthly_rides;
