@@ -12,6 +12,9 @@
 <h2>Amortization threshold</h2>
 <img width="1042" height="135" alt="image" src="https://github.com/user-attachments/assets/b7ea8169-035a-4ad7-86a1-0772b289fc30" />
 
+<h2>Monthly saved money</h2>
+<img width="837" height="243" alt="image" src="https://github.com/user-attachments/assets/b0244533-cf49-47f7-a6ef-3c211edff885" />
+
 
 <h2>Amortization</h2>
 <img width="873" height="136" alt="image" src="https://github.com/user-attachments/assets/8e86b0ed-5c40-47f8-ab8f-9fbd6a57dcd4" />
