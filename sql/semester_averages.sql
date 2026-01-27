@@ -28,17 +28,19 @@ WITH bikeumeter_activities AS (
     -- 2) Public transport fare sum
         -- a) Cummulative sum of fare per month
     monthly_rides AS (
-        SELECT  COUNT(*) AS rides_per_month,
+        SELECT  month,
+                COUNT(*) AS rides_per_month,
                 SUM(ride_duration_minutes) AS time_ridden,
                 SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money_euros
         FROM cleaned_fare_euros
+        GROUP BY month
     ),
 
     -- 3) Semester average results
     semester_averages AS (
         SELECT  AVG(rides_per_month) AS semester_ride_average,
                 CAST((AVG(time_ridden) / 60) AS DECIMAL(10, 2)) AS semester_average_hours_ridden,
-                AVG(saved_money_euros) AS semester_savings
+                AVG(saved_money_euros) AS semester_saved_money
         FROM monthly_rides
     )
 
