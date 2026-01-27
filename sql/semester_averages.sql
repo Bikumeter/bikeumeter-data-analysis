@@ -37,6 +37,7 @@ WITH bikeumeter_activities AS (
         ORDER BY month_number ASC
     ),
 
+    -- 3) Semester average results
     clean_monthly_rides AS (
         SELECT month_number, month, rides_per_month,
                 CAST((time_ridden / 60) AS DECIMAL(10, 2)) AS hours_ridden,
