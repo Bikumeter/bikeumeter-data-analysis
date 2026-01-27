@@ -28,8 +28,7 @@ WITH bikeumeter_activities AS (
     -- 2) Public transport fare sum
         -- a) Cummulative sum of fare per month
     monthly_rides AS (
-        SELECT month_number, month,
-                COUNT(*) AS rides_per_month,
+        SELECT  COUNT(*) AS rides_per_month,
                 SUM(ride_duration_minutes) AS time_ridden,
                 SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money_euros
         FROM cleaned_fare_euros
