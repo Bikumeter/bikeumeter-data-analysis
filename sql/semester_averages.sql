@@ -38,9 +38,9 @@ WITH bikeumeter_activities AS (
 
     -- 3) Semester average results
     semester_averages AS (
-        SELECT  AVG(rides_per_month) AS semester_ride_average,
-                CAST((AVG(time_ridden) / 60) AS DECIMAL(10, 2)) AS semester_average_hours_ridden,
-                AVG(saved_money_euros) AS semester_saved_money
+        SELECT  ROUND(AVG(rides_per_month), 2) AS semester_ride_average,
+                CAST((AVG(time_ridden) / 60) AS DECIMAL(10, 2)) AS semester_average_hours_ridden, -- no need to round as I am already returning a decimal(10, 2) int
+                ROUND(AVG(saved_money_euros), 2) AS semester_saved_money
         FROM monthly_rides
     )
 
