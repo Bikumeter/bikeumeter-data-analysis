@@ -37,9 +37,9 @@ WITH bikeumeter_activities AS (
 
     -- 3) Semester average results
     semester_averages AS (
-        SELECT month_number, month, rides_per_month,
-                CAST((time_ridden / 60) AS DECIMAL(10, 2)) AS hours_ridden,
-                saved_money_euros
+        SELECT  AVG(rides_per_month) AS semester_ride_average,
+                CAST((AVG(time_ridden) / 60) AS DECIMAL(10, 2)) AS semester_average_hours_ridden,
+                AVG(saved_money_euros) AS semester_savings
         FROM monthly_rides
     )
 
