@@ -33,16 +33,14 @@ WITH bikeumeter_activities AS (
                 SUM(ride_duration_minutes) AS time_ridden,
                 SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money_euros
         FROM cleaned_fare_euros
-        GROUP BY month_number, month
-        ORDER BY month_number ASC
     ),
 
     -- 3) Semester average results
-    clean_monthly_rides AS (
+    semester_averages AS (
         SELECT month_number, month, rides_per_month,
                 CAST((time_ridden / 60) AS DECIMAL(10, 2)) AS hours_ridden,
                 saved_money_euros
         FROM monthly_rides
     )
 
-    SELECT * FROM clean_monthly_rides;
+    SELECT * FROM semester_averages;
