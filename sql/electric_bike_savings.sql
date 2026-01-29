@@ -1,15 +1,42 @@
--- I need to calculate how much I saved in the months that I had the electric bike --
+-- Get savings for commutes done with electric bike --
 
--- 1) Get the activities that correspond only to commutes using electric bike
-WHERE swapfiets_commutes AS (
-    SELECT name, distance_mt, date, public_transport_fare, ride_duration_minutes
-    FROM read_csv_auto('data/bikeumeter_commute_activities.csv')
-    WHERE name = 'swapfiets commute';
+WITH bikeumeter_electric_activities AS (
+    SELECT name, date, public_transport_fare, ride_duration_minutes
+    FROM read_csv_auto('data/bikeumeter_commute_activities.csv') AS activities
+    WHERE name = 'swapfiets commute'
 ),
--- a) Clean date to only get month
--- b) I only want month number, month name, rides_per_month, hours_ridden & saved_money_euros
-cleaned_date AS (
+
+-- 1) Date manipulation
+    -- a) Keep only date portion of timestamp
+clean_date AS (
     SELECT *,
-            CAST(date AS DATE) AS date_only -- not time 
-    FROM swapfiets_commutes
+            CAST(date AS DATE) AS date_only -- strip out the time portion
+    FROM bikeumeter_electric_activities
+),
+
+-- b) Turn date into month -- monthname(date) function
+-- c) Group activities by date
+monthly_activities AS (
+    SELECT date_part('month', date_only) AS month_number, MONTHNAME(date_only) AS month, public_transport_fare, ride_duration_minutes
+    FROM clean_date
+    ORDER BY date_only -- always order by date not by month name
+),
+-- remove the € symbol
+cleaned_fare_euros AS (
+    SELECT month_number, month, ride_duration_minutes, 
+            REPLACE(public_transport_fare, '€', '') AS cleaned_fare_euros
+    FROM monthly_activities
+),
+-- 2) Public transport fare sum
+    -- a) Sum of fare per month
+monthly_e_rides AS (
+    SELECT  month_number, month,
+            COUNT(*) AS rides_per_month,
+            SUM(ride_duration_minutes) AS time_ridden,
+            SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money_euros
+    FROM cleaned_fare_euros
+    GROUP BY month_number, month
+    ORDER BY month_number DESC
 )
+
+SELECT * FROM monthly_e_rides;
