@@ -8,6 +8,8 @@ WHERE swapfiets_commutes AS (
 ),
 -- a) Clean date to only get month
 -- b) I only want month number, month name, rides_per_month, hours_ridden & saved_money_euros
-cleaned_month AS (
-
+cleaned_date AS (
+    SELECT *,
+            CAST(date AS DATE) AS date_only -- not time 
+    FROM swapfiets_commutes
 )
