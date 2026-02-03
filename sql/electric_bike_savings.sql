@@ -23,9 +23,9 @@ monthly_activities AS (
     ORDER BY date_only -- always order by date not by month name
 ),
 -- remove the € symbol
-cleaned_fare_euros AS (
+clean_fare_euros AS (
     SELECT year, month_number, month, ride_duration_minutes, 
-            REPLACE(public_transport_fare, '€', '') AS cleaned_fare_euros
+            REPLACE(public_transport_fare, '€', '') AS clean_fare_euros
     FROM monthly_activities
 ),
 -- 2) Public transport fare sum
@@ -34,8 +34,8 @@ monthly_e_rides AS (
     SELECT  year, month_number, month,
             COUNT(*) AS e_rides_per_month,
             ROUND(SUM(ride_duration_minutes), 2) AS e_time_ridden,
-            SUM(CAST(cleaned_fare_euros AS INT)) AS total_transport_fare_euros
-    FROM cleaned_fare_euros
+            SUM(CAST(clean_fare_euros AS INT)) AS total_transport_fare_euros
+    FROM clean_fare_euros
     GROUP BY year, month_number, month
 ),
 
