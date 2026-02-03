@@ -16,7 +16,8 @@
 <img width="837" height="243" alt="image" src="https://github.com/user-attachments/assets/b0244533-cf49-47f7-a6ef-3c211edff885" />
 
 <h2>Semester analysis</h2>
-<img width="815" height="135" alt="image" src="https://github.com/user-attachments/assets/de642ec6-b22f-45e5-9697-5ced2a79ea6a" />
+<img width="891" height="151" alt="image" src="https://github.com/user-attachments/assets/37e55e65-ed2c-45bc-9ab6-f89090643b8e" />
+
 
 <h2>E-bike analysis</h2>
 <img width="1532" height="151" alt="image" src="https://github.com/user-attachments/assets/c988abe9-0074-4a2a-95cc-c59ecf266344" />
