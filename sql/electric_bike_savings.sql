@@ -3,7 +3,7 @@
 WITH bikeumeter_electric_activities AS (
     SELECT name, date, public_transport_fare, ride_duration_minutes
     FROM read_csv_auto('data/bikeumeter_commute_activities.csv') AS activities
-    WHERE name = 'swapfiets commute'
+    WHERE name = 'swapfiets commute' -- the commutes done with the electric bike are named like this in the dataset
 ),
 
 -- 1) Date manipulation
@@ -32,8 +32,8 @@ cleaned_fare_euros AS (
     -- a) Sum of fare per month
 monthly_e_rides AS (
     SELECT  year, month_number, month,
-            COUNT(*) AS rides_per_month,
-            ROUND(SUM(ride_duration_minutes), 2) AS time_ridden,
+            COUNT(*) AS e_rides_per_month,
+            ROUND(SUM(ride_duration_minutes), 2) AS e_time_ridden,
             SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money_euros
     FROM cleaned_fare_euros
     GROUP BY year, month_number, month
