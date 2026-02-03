@@ -34,10 +34,20 @@ monthly_e_rides AS (
     SELECT  year, month_number, month,
             COUNT(*) AS e_rides_per_month,
             ROUND(SUM(ride_duration_minutes), 2) AS e_time_ridden,
-            SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money_euros
+            SUM(CAST(cleaned_fare_euros AS INT)) AS total_transport_fare_euros
     FROM cleaned_fare_euros
     GROUP BY year, month_number, month
+),
+
+-- 3) Did the bike 'pay for itself'? As this is a rented bike, I want to know if I covered the rental fee.
+-- Bike rental is 64.90 euros per month with the plan I have
+e_savings AS (
+    SELECT year, month_number, month,
+           e_rides_per_month, e_time_ridden,
+           total_transport_fare_euros, 
+           ROUND(total_transport_fare_euros - 64.90, 2) AS saved_money_euros    
+    FROM monthly_e_rides
     ORDER BY year ASC
 )
 
-SELECT * FROM monthly_e_rides;
+SELECT * FROM e_savings;
