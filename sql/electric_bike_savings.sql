@@ -44,7 +44,8 @@ monthly_e_rides AS (
 e_savings AS (
     SELECT year, month_number, month,
            e_rides_per_month, e_time_ridden,
-           total_transport_fare_euros, 
+           total_transport_fare_euros,
+           64.90 AS bike_rental, -- bike rental fee
            ROUND(total_transport_fare_euros - 64.90, 2) AS saved_money_euros    
     FROM monthly_e_rides
     ORDER BY year ASC
