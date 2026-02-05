@@ -51,7 +51,7 @@ COPY (
         initial_date.date AS start_date,
         break_amortization_threshold.date AS amortized_date,
         EXTRACT(DAY FROM (break_amortization_threshold.date - initial_date.date)) AS days_to_amortize,
-        days_to_amortize / 30 AS months_to_amortize
+        ROUND(days_to_amortize / 30, 2) AS months_to_amortize
     FROM initial_date, break_amortization_threshold
 )
 TO 'results/bike_amortization_summary.csv'
