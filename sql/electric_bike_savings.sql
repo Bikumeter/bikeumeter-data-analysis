@@ -36,6 +36,7 @@ COPY (
                 ROUND(SUM(ride_duration_minutes), 2) AS e_time_ridden,
                 SUM(CAST(clean_fare_euros AS INT)) AS total_transport_fare_euros
         FROM clean_fare_euros
+        WHERE NOT month = 'February' -- February is not yet completed
         GROUP BY year, month_number, month
     ),
 
