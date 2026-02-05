@@ -7,21 +7,19 @@
 </ol>
 
 <h2>Amortization</h2>
-<img width="873" height="136" alt="image" src="https://github.com/user-attachments/assets/8e86b0ed-5c40-47f8-ab8f-9fbd6a57dcd4" />
+<img width="857" height="130" alt="image" src="https://github.com/user-attachments/assets/3f89a3e5-a5b8-4704-bff9-0aebc8d1067d" />
 
 <h2>Amortization threshold</h2>
-<img width="1042" height="135" alt="image" src="https://github.com/user-attachments/assets/b7ea8169-035a-4ad7-86a1-0772b289fc30" />
+<img width="1030" height="132" alt="image" src="https://github.com/user-attachments/assets/1a2054c6-8520-41a2-99a4-5806d95a8cc8" />
 
 <h2>Monthly saved money</h2>
-<img width="837" height="243" alt="image" src="https://github.com/user-attachments/assets/b0244533-cf49-47f7-a6ef-3c211edff885" />
+<img width="829" height="238" alt="image" src="https://github.com/user-attachments/assets/486d0caf-d2a4-4b93-91df-5f01a4f4a1b8" />
 
 <h2>Semester analysis</h2>
-<img width="890" height="132" alt="image" src="https://github.com/user-attachments/assets/2d20d6b3-69f7-4ca1-b9ec-195b83101ee1" />
+<img width="890" height="128" alt="image" src="https://github.com/user-attachments/assets/b20f7cf8-a337-412e-8b17-7fc07c7680ab" />
 
 <h2>E-bike analysis</h2>
-<img width="1532" height="151" alt="image" src="https://github.com/user-attachments/assets/c988abe9-0074-4a2a-95cc-c59ecf266344" />
-
-
+<img width="1525" height="149" alt="image" src="https://github.com/user-attachments/assets/504bc987-3510-4449-a003-3d6f8b2f4a93" />
 
 
 <h6>* I had introduced a file with sensitive information. It could be found in all commits. I then ran git-filter-repo to remove this file from the repo and rewrite the commit history so that it could not be found in the entire repo. This is why in most of the previous commits, there is a file missing, but it is called in the SQL queries.</h6>
