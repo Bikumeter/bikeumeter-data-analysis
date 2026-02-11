@@ -19,7 +19,8 @@
 <img width="890" height="128" alt="image" src="https://github.com/user-attachments/assets/b20f7cf8-a337-412e-8b17-7fc07c7680ab" />
 
 <h2>E-bike analysis</h2>
-<img width="1525" height="149" alt="image" src="https://github.com/user-attachments/assets/504bc987-3510-4449-a003-3d6f8b2f4a93" />
+<img width="1448" height="145" alt="image" src="https://github.com/user-attachments/assets/80283c73-015d-47fe-8d94-a3f446e2bd06" />
+
 
 
 <h6>* I had introduced a file with sensitive information. It could be found in all commits. I then ran git-filter-repo to remove this file from the repo and rewrite the commit history so that it could not be found in the entire repo. This is why in most of the previous commits, there is a file missing, but it is called in the SQL queries.</h6>
