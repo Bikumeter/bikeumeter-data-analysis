@@ -41,7 +41,7 @@ COPY (
 
     clean_monthly_rides AS (
         SELECT month_number, month, rides_per_month,
-                CAST((time_ridden / 60) AS DECIMAL(10, 2)) AS hours_ridden,
+                CAST((time_ridden / 60.0) AS DECIMAL(10, 2)) AS hours_ridden,
                 saved_money_euros
         FROM monthly_rides
     )
