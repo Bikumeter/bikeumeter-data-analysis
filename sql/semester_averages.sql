@@ -32,7 +32,7 @@ COPY (
             SELECT  month,
                     COUNT(*) AS rides_per_month,
                     SUM(ride_duration_minutes) AS time_ridden,
-                    SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money_euros
+                    SUM(CAST(cleaned_fare_euros AS DECIMAL(10,2))) AS saved_money_euros
             FROM cleaned_fare_euros
             GROUP BY month
         ),
@@ -40,7 +40,7 @@ COPY (
         -- 3) Semester average results
         semester_averages AS (
             SELECT  ROUND(AVG(rides_per_month), 2) AS semester_ride_average,
-                    CAST((AVG(time_ridden) / 60) AS DECIMAL(10, 2)) AS semester_average_hours_ridden, -- no need to round as I am already returning a decimal(10, 2) int
+                    CAST((AVG(time_ridden) / 60.0) AS DECIMAL(10, 2)) AS semester_average_hours_ridden, -- no need to round as I am already returning a decimal(10, 2) int
                     ROUND(AVG(saved_money_euros), 2) AS average_semester_saved_money
             FROM monthly_rides
         )
