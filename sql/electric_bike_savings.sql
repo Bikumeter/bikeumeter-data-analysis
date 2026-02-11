@@ -2,8 +2,8 @@
 COPY (
     WITH bikeumeter_electric_activities AS (
         SELECT name, date, public_transport_fare, ride_duration_minutes
-        FROM read_csv_auto('data/bikeumeter_commute_activities.csv') AS activities
-        WHERE name = 'swapfiets commute' -- the commutes done with the electric bike are named like this in the dataset
+        FROM read_csv_auto('data/bikeumeter_activities.csv') AS activities
+        WHERE name LIKE'%swapfiets%' -- activities done with the electric bike are named like this in the dataset
     ),
 
     -- 1) Date manipulation
@@ -32,9 +32,9 @@ COPY (
         -- a) Sum of fare per month
     monthly_e_rides AS (
         SELECT  year, month_number, month,
-                COUNT(*) AS e_rides_per_month,
-                ROUND(SUM(ride_duration_minutes), 2) AS e_time_ridden,
-                SUM(CAST(clean_fare_euros AS INT)) AS total_transport_fare_euros
+                COUNT(*) AS e_rides,
+                ROUND(SUM(ride_duration_minutes) / 60, 2) AS e_hours_ridden,
+                SUM(CAST(clean_fare_euros AS DECIMAL(10,2))) AS total_transport_fare_euros
         FROM clean_fare_euros
         WHERE NOT month = 'February' -- February is not yet completed
         GROUP BY year, month_number, month
@@ -44,7 +44,7 @@ COPY (
     -- Bike rental is 64.90 euros per month with the plan I have
     e_savings AS (
         SELECT year, month_number, month,
-            e_rides_per_month, e_time_ridden,
+            e_rides, e_hours_ridden,
             total_transport_fare_euros,
             64.90 AS bike_rental, -- bike rental fee
             ROUND(total_transport_fare_euros - 64.90, 2) AS saved_money_euros,

@@ -2,7 +2,7 @@
 COPY (
     WITH bikeumeter_activities AS (
         SELECT date, start_city, end_city, public_transport_fare, ride_duration_minutes
-        FROM read_csv_auto('data/bikeumeter_commute_activities.csv') AS activities
+        FROM read_csv_auto('data/bikeumeter_activities.csv') AS activities
     ),
 
     -- 1) Date manipulation
