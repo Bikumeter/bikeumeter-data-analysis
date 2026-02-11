@@ -61,7 +61,7 @@ COPY (
         ORDER BY year ASC
     )
 
-    SELECT * FROM e_final_savings;
+    SELECT * FROM e_final_savings
 )
 TO 'results/e_bike_savings.csv'
 WITH (HEADER, DELIMETER ',');
