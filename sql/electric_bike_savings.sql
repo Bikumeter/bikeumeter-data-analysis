@@ -2,7 +2,7 @@
 COPY (
     WITH bikeumeter_electric_activities AS (
         SELECT name, date, public_transport_fare, ride_duration_minutes
-        FROM read_csv_auto('data/bikeumeter_commute_activities.csv') AS activities
+        FROM read_csv_auto('data/bikeumeter_activities.csv') AS activities
         WHERE name = 'swapfiets commute' -- the commutes done with the electric bike are named like this in the dataset
     ),
 
