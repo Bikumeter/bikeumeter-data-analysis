@@ -13,7 +13,7 @@
 <img width="1030" height="132" alt="image" src="https://github.com/user-attachments/assets/1a2054c6-8520-41a2-99a4-5806d95a8cc8" />
 
 <h2>Monthly saved money</h2>
-<img width="829" height="238" alt="image" src="https://github.com/user-attachments/assets/486d0caf-d2a4-4b93-91df-5f01a4f4a1b8" />
+<img width="833" height="239" alt="image" src="https://github.com/user-attachments/assets/1d81888b-28bb-4ab5-ae15-90bae358e5e9" />
 
 <h2>Semester analysis</h2>
 <img width="890" height="128" alt="image" src="https://github.com/user-attachments/assets/b20f7cf8-a337-412e-8b17-7fc07c7680ab" />
