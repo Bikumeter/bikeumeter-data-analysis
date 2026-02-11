@@ -4,6 +4,7 @@
 <ol>
 <li>SQL</li>
 <li>DuckDB</li>
+  <li>ChatGPT</li>
 </ol>
 
 <h2>Amortization</h2>
