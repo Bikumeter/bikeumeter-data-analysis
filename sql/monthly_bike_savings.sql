@@ -46,7 +46,7 @@ COPY (
         FROM monthly_rides
     )
 
-    SELECT * FROM clean_monthly_rides;
+    SELECT * FROM clean_monthly_rides
 )
 TO 'results/bike_monthly_savings_analysis.csv'
 WITH (HEADER, DELIMETER ',');
