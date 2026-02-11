@@ -29,8 +29,8 @@ COPY (
         -- d) do the cumulative sum
     amortization AS (
         SELECT *,
-                SUM(numeric_fare) OVER( ORDER BY date) AS cumulative_sum,
-                (bike_cost * -1) + cumulative_sum AS amortization
+                CAST(SUM(numeric_fare) OVER( ORDER BY date) AS DECIMAL(10,2)) AS cumulative_sum,
+                CAST((bike_cost * -1) + cumulative_sum AS DECIMAL(10,2)) AS amortization
         FROM numeric_fare
     ),
 
