@@ -33,7 +33,7 @@ COPY (
         SELECT month_number, month,
                 COUNT(*) AS rides_per_month,
                 SUM(ride_duration_minutes) AS time_ridden,
-                SUM(CAST(cleaned_fare_euros AS INT)) AS saved_money_euros
+                SUM(CAST(cleaned_fare_euros AS DECIMAL(10,2))) AS saved_money_euros
         FROM cleaned_fare_euros
         GROUP BY month_number, month
         ORDER BY month_number ASC
@@ -46,7 +46,7 @@ COPY (
         FROM monthly_rides
     )
 
-    SELECT * FROM clean_monthly_rides
+    SELECT * FROM clean_monthly_rides;
 )
 TO 'results/bike_monthly_savings_analysis.csv'
 WITH (HEADER, DELIMETER ',');
