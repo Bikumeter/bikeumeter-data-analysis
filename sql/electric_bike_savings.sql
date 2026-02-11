@@ -34,7 +34,7 @@ COPY (
         SELECT  year, month_number, month,
                 COUNT(*) AS e_rides_per_month,
                 ROUND(SUM(ride_duration_minutes), 2) AS e_time_ridden,
-                SUM(CAST(clean_fare_euros AS INT)) AS total_transport_fare_euros
+                SUM(CAST(clean_fare_euros AS DECIMAL(10,2))) AS total_transport_fare_euros
         FROM clean_fare_euros
         WHERE NOT month = 'February' -- February is not yet completed
         GROUP BY year, month_number, month
