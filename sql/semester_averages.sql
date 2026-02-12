@@ -1,6 +1,6 @@
 COPY (
     WITH bikeumeter_activities AS (
-            SELECT date, start_city, end_city, public_transport_fare, ride_duration_minutes
+            SELECT date, start_city, end_city, public_transport_fare, ride_duration_minutes, distance_mt
             FROM read_csv_auto('data/bikeumeter_activities.csv') AS activities
         ),
 
@@ -15,7 +15,8 @@ COPY (
         -- b) Turn date into month -- monthname(date) function
         -- c) Group activities by date
         monthly_activities AS (
-            SELECT date_part('month', date_only) AS month_number, MONTHNAME(date_only) AS month, public_transport_fare, ride_duration_minutes,
+            SELECT date_part('month', date_only) AS month_number, MONTHNAME(date_only) AS month, 
+                    public_transport_fare, ride_duration_minutes, distance_mt
             FROM clean_date
             WHERE date_part('year', date_only) = 2025
             ORDER BY date_only -- always order by date not by month name
@@ -23,7 +24,8 @@ COPY (
 
         cleaned_fare_euros AS (
             SELECT month_number, month, ride_duration_minutes, 
-                    REPLACE(public_transport_fare, '€', '') AS cleaned_fare_euros
+                    REPLACE(public_transport_fare, '€', '') AS cleaned_fare_euros, 
+                    distance_mt
             FROM monthly_activities
         ),
         -- 2) Public transport fare sum
@@ -32,6 +34,7 @@ COPY (
             SELECT  month,
                     COUNT(*) AS rides_per_month,
                     SUM(ride_duration_minutes) AS time_ridden,
+                    SUM(distance_mt) AS mts_per_month,
                     SUM(CAST(cleaned_fare_euros AS DECIMAL(10,2))) AS saved_money_euros
             FROM cleaned_fare_euros
             GROUP BY month
@@ -41,11 +44,12 @@ COPY (
         semester_averages AS (
             SELECT  ROUND(AVG(rides_per_month), 2) AS semester_ride_average,
                     CAST((AVG(time_ridden) / 60.0) AS DECIMAL(10, 2)) AS semester_average_hours_ridden, -- no need to round as I am already returning a decimal(10, 2) int
+                    CAST((AVG(mts_per_month) / 1000.0) AS DECIMAL(10,2)) AS semester_avg_kms,
                     CAST(ROUND(AVG(saved_money_euros), 2) AS DECIMAL(10,2)) AS average_semester_saved_money
             FROM monthly_rides
         )
 
-        SELECT * FROM semester_averages
+        SELECT * FROM semester_averages;
 )
 TO 'results/bike_semester_analysis.csv'
 WITH (HEADER, DELIMETER ',');
