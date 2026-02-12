@@ -60,7 +60,7 @@ COPY (
         SELECT semester_avg_rides, semester_avg_hours_ridden, semester_avg_kms,
                 CAST(semester_avg_saved_money / semester_avg_kms AS DECIMAL(10,2)) AS semester_avg_price_per_km,
                 semester_avg_saved_money
-        FROM semester_averages;
+        FROM semester_averages
 )
 TO 'results/bike_semester_analysis.csv'
 WITH (HEADER, DELIMETER ',');
